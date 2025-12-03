@@ -1,110 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Alice Moura Alves | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Alice Moura Alves | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="container">
 
-  <aside class="sidebar">
-  
-    <h1>Alice<br>Moura Alves</h1>
-    <p class="role">Data Scientist in Training</p>
+  <aside class="sidebar">
+   
+    <h1>Alice<br>Moura Alves</h1>
+    <p class="role">Data Scientist in Training</p>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </aside>
+    <nav>
+      <a href="#about">Sobre</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#projects">Projetos</a>
+      <a href="#contact">Contato</a>
+    </nav>
+  </aside>
 
-  <main class="content">
+  <main class="content">
 
-    <section id="about">
-      <h2>About Me</h2>
-      <img src="https://drive.google.com/file/d/1LxlemczhFspO2ZJu1BCWF4YpefkH2_kO/view?usp=drive_link" alt="Foto de Perfil de Alice Moura Alves">
-      <p>
-        I am a high school student focused on Data Science, with hands-on
-        experience in data analysis, machine learning and visualization.
-      </p>
-      <p>
-        I develop projects based on real-world problems, applying statistical
-        reasoning to generate insights from data.
-      </p>
-      <p>
-        My goal is to grow as a Data Scientist and contribute to data-driven
-        decision-making in innovative organizations.
-      </p>
-    </section>
+        <section id="about" class="content-card">
+      <h2>Sobre Mim</h2>
+      
+            <div class="about-flex">
+        <div class="profile-wrapper">
+                    <img src="https://drive.google.com/file/d/1LxlemczhFspO2ZJu1BCWF4YpefkH2_kO/view?usp=drive_link" alt="Foto de Perfil de Alice Moura Alves">
+        </div>
+        <div class="about-text">
+          <p>
+            Sou uma estudante do ensino médio focada em Data Science, com experiência prática em análise de dados, machine learning e visualização.
+          </p>
+          <p>
+            Desenvolvo projetos baseados em problemas reais, aplicando raciocínio estatístico para gerar insights a partir de dados.
+          </p>
+          <p>
+            Meu objetivo é crescer como Data Scientist e contribuir para a tomada de decisões orientada por dados em organizações inovadoras.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <img src="assets/img-habilidades.jpg" alt="Ícones de Linguagens de Programação e Ferramentas de Data Science" class="section-image">
-      <div class="skills">
-        <span>Python</span>
-        <span>Pandas</span>
-        <span>NumPy</span>
-        <span>Scikit-learn</span>
-        <span>Data Analysis</span>
-        <span>Machine Learning</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>Git & GitHub</span>
-      </div>
-    </section>
+        <section id="skills" class="content-card">
+      <h2>Habilidades</h2>
+      <div class="skills-grid">
+        <div class="skill-item">Python</div>
+        <div class="skill-item">Pandas</div>
+        <div class="skill-item">NumPy</div>
+        <div class="skill-item">Scikit-learn</div>
+        <div class="skill-item">Data Analysis</div>
+        <div class="skill-item">Machine Learning</div>
+        <div class="skill-item">HTML</div>
+        <div class="skill-item">CSS</div>
+        <div class="skill-item">JavaScript</div>
+        <div class="skill-item">Git & GitHub</div>
+      </div>
+    </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
+        <section id="projects" class="content-card">
+      <h2>Projetos</h2>
 
-      <div class="projects">
+      <div class="projects-grid">
 
-        <div class="project-card">
-          <h3>Shopping List Web System</h3>
-          <p>Accessible and responsive shopping list system with automatic calculations.</p>
-          <img src="https://drive.google.com/file/d/133ekUT5r4eLlRhvrDWD8pYxktEOxNGnj/view?usp=drive_link">
-          <a href="https://github.com/AliceMouraAlves30/listadecompras" target="_blank">
-            View Repository
-          </a>
-          <span>HTML • CSS • JavaScript</span>
-        </div>
+        <div class="project-card">
+          <h3>Sistema Web de Lista de Compras</h3>
+          <p>Sistema de lista de compras acessível e responsivo com cálculos automáticos.</p>
+                    <img src="https://drive.google.com/file/d/133ekUT5r4eLlRhvrDWD8pYxktEOxNGnj/view?usp=drive_link" alt="Imagem do Projeto Lista de Compras">
+          <a href="https://github.com/AliceMouraAlves30/listadecompras" target="_blank">
+            Ver Repositório
+          </a>
+          <span>HTML • CSS • JavaScript</span>
+        </div>
 
-        <div class="project-card">
-          <h3>HIV Infection Prediction</h3>
-          <p>Logistic regression model applied to health and demographic data.</p>
-          <img src="https://drive.google.com/file/d/1AohaS1IR-yLRs4W5WS_1AR8a_M_gp3LL/view?usp=drive_link">
-          <a href="https://anaconda.com/app/share/notebooks/82de66ae-4b11-4dbd-81a1-d66a4b4c1188/overview" target="_blank">
-            View Notebook
-          </a>
-          <span>Python • Pandas • Scikit-learn</span>
-        </div>
+        <div class="project-card">
+          <h3>Previsão de Infecção por HIV</h3>
+          <p>Modelo de regressão logística aplicado a dados de saúde e demográficos.</p>
+                    <img src="https://drive.google.com/file/d/1AohaS1IR-yLRs4W5WS_1AR8a_M_gp3LL/view?usp=drive_link" alt="Imagem do Projeto Previsão HIV">
+          <a href="https://anaconda.com/app/share/notebooks/82de66ae-4b11-4dbd-81a1-d66a4b4c1188/overview" target="_blank">
+            Ver Notebook
+          </a>
+          <span>Python • Pandas • Scikit-learn</span>
+        </div>
 
-        <div class="project-card">
-          <h3>Student Search System</h3>
-          <p>Web-based system for searching and filtering student records.</p>
-          <img src="https://drive.google.com/file/d/1t1dCwvWcJIOrAdbGPG5j40SMdEzh0TXH/view?usp=drive_link">
-          <a href="https://elaborate-jalebi-bb5f26.netlify.app/" target="_blank">
-            Live Project
-          </a>
-          <span>HTML • CSS • JavaScript</span>
-        </div>
+        <div class="project-card">
+          <h3>Sistema de Busca de Alunos</h3>
+          <p>Sistema web para busca e filtragem de registros de estudantes.</p>
+                    <img src="https://drive.google.com/file/d/1t1dCwvWcJIOrAdbGPG5j40SMdEzh0TXH/view?usp=drive_link" alt="Imagem do Projeto Busca Alunos">
+          <a href="https://elaborate-jalebi-bb5f26.netlify.app/" target="_blank">
+            Ver Projeto Online
+          </a>
+          <span>HTML • CSS • JavaScript</span>
+        </div>
 
-      </div>
-    </section>
+      </div>
+    </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:alice.datascience.sc@gmail.com">alice.datascience.sc@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/alice-moura-alves1" target="_blank">linkedin.com/in/alice-moura-alves1</a></p>
-      <p>GitHub: <a href="https://github.com/AliceMouraAlves30" target="_blank">github.com/AliceMouraAlves30</a></p>
-    </section>
+        <section id="contact" class="content-card">
+      <h2>Contato</h2>
+      <p>Email: <a href="mailto:alice.datascience.sc@gmail.com">alice.datascience.sc@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/alice-moura-alves1" target="_blank">linkedin.com/in/alice-moura-alves1</a></p>
+      <p>GitHub: <a href="https://github.com/AliceMouraAlves30" target="_blank">github.com/AliceMouraAlves30</a></p>
+    </section>
 
-  </main>
+  </main>
 </div>
 
 <script src="script.js"></script>

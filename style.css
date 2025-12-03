@@ -1,255 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+/* --- Efeito Pulsante (HBO Max Inspired) --- */
 
-/* === 1. Estilos Globais e Reset === */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    /* Cores do HBO Max */
-    --purple-dark: #1A004C; /* Roxo Escuro Profundo (Fundo principal) */
-    --purple-vibrant: #7200E8; /* Roxo Vibrante (Destaques) */
-    --purple-light: #B300B3; /* Magenta/Roxo Claro (Degradê) */
-    --white: #FFFFFF;
-    
-    /* Tipografia */
-    --font-primary: 'Varela Round', sans-serif;
-}
-
-body {
-    font-family: var(--font-primary);
-    background-color: var(--purple-dark);
-    color: var(--white);
-    line-height: 1.6;
-    min-height: 100vh;
-}
-
-/* Links em branco por padrão */
-a {
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--purple-vibrant); /* Destaque ao passar o mouse */
-}
-
-/* Títulos */
-h1, h2, h3 {
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-/* === 2. Layout Principal (Sidebar + Content) === */
-.container {
-    display: flex;
-    min-height: 100vh;
-}
-
-/* --- Sidebar (Barra Lateral) --- */
-.sidebar {
-    width: 250px;
-    padding: 2.5rem;
-    position: fixed; /* Fixo para acompanhar a rolagem */
-    height: 100vh;
-    /* Degradê sutil para diferenciar da área principal */
-    background: linear-gradient(180deg, var(--purple-dark) 0%, #0D0026 100%); 
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
-    z-index: 10;
-}
-
-.sidebar h1 {
-    font-size: 2.5rem;
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-}
-
-.sidebar .role {
-    color: var(--purple-vibrant);
-    font-size: 1rem;
-    margin-bottom: 3rem;
-}
-
-.sidebar nav a {
-    display: block;
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid transparent;
-}
-
-.sidebar nav a:hover {
-    color: var(--white);
-    border-bottom: 1px solid var(--purple-light);
-}
-
-/* --- Conteúdo Principal --- */
-.content {
-    margin-left: 250px; /* Garante que o conteúdo comece após a sidebar */
-    flex-grow: 1;
-    padding: 3rem 5rem;
-}
-
-section {
-    padding: 4rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-section:last-child {
-    border-bottom: none;
-}
-
-h2 {
-    font-size: 2.5rem;
-    color: var(--purple-vibrant);
-    border-left: 5px solid var(--purple-vibrant);
-    padding-left: 15px;
-    margin-bottom: 2rem;
-}
-
-/* === 3. Estilos de Seção === */
-
-/* --- About Me --- */
-#about img {
-    width: 150px;
+.profile-wrapper {
+    position: relative;
+    width: 150px; /* Deve ser o mesmo tamanho da imagem */
     height: 150px;
-    border-radius: 50%; /* Imagem de perfil redonda */
-    object-fit: cover;
-    border: 4px solid var(--purple-light);
     margin-bottom: 1.5rem;
 }
 
-/* --- Skills --- */
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 1.5rem;
-}
-
-.skills span {
-    background-color: var(--purple-light);
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    border-radius: 20px; /* Pill-shaped like the HBO Max "O" */
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-/* --- Projects --- */
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
-    background-color: #2F0075; /* Roxo um pouco mais claro que o fundo */
-    padding: 25px;
-    border-radius: 12px; /* Cantos arredondados */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px); /* Efeito sutil de elevação */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 15px var(--purple-vibrant); /* Brilho neon */
-}
-
-.project-card h3 {
-    color: var(--white);
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-}
-
-.project-card img {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
+#about img {
+    /* Mantém os estilos existentes */
+    width: 100%; /* Ajusta para o wrapper */
+    height: 100%;
+    border-radius: 50%;
     object-fit: cover;
-    border-radius: 8px;
-    margin: 1rem 0;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 4px solid var(--purple-light);
+    /* Remove a margem bottom que agora está no wrapper */
+    margin-bottom: 0;
+    z-index: 2; /* Garante que a imagem fique acima do efeito */
 }
 
-.project-card a {
-    display: inline-block;
-    background-color: var(--purple-vibrant);
-    padding: 0.6rem 1.2rem;
-    border-radius: 25px;
-    margin-top: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.85rem;
+.profile-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 3px solid var(--purple-vibrant); /* Borda inicial do pulso */
+    border-radius: 50%;
+    opacity: 0;
+    
+    /* Aplica a animação */
+    animation: pulse-ring 2.5s infinite cubic-bezier(0.66, 0, 0, 1);
+    z-index: 1;
 }
 
-.project-card a:hover {
-    background-color: var(--purple-light);
-    color: var(--white);
-}
-
-.project-card span {
-    display: block;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.8rem;
-    margin-top: 10px;
-}
-
-/* --- Contact --- */
-#contact p a {
-    font-weight: 600;
-    border-bottom: 1px dashed var(--purple-vibrant);
-}
-
-#contact p a:hover {
-    border-bottom-color: var(--white);
-}
-
-/* === 4. Responsividade (Opcional, mas Importante) === */
-@media (max-width: 900px) {
-    .container {
-        flex-direction: column;
+/* Define a animação */
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.75;
     }
-
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        box-shadow: none;
-        text-align: center;
-    }
-
-    .sidebar nav {
-        margin-top: 1.5rem;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    .sidebar nav a {
-        padding: 0.3rem 0.5rem;
-        border-bottom: none;
-        /* Estilo de botão para mobile */
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 5px;
-    }
-
-    .content {
-        margin-left: 0;
-        padding: 2rem;
-    }
-
-    section {
-        padding: 2rem 0;
-    }
-
-    h2 {
-        font-size: 2rem;
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
     }
 }

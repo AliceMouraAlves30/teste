@@ -1,328 +1,243 @@
-/* Importação da fonte Varela Round (arredondada) - Já incluída no HTML, mas boa prática manter aqui */
-/* @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap'); */
-
-/* === 1. Variáveis, Reset e Estilos Globais === */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* === 1. Reset e Variáveis de Cores (Nova Paleta Dark Neon) === */
 :root {
-    /* Cores Azuis (Inspiradas no Azul Royal/Claro) */
-    --blue-dark: #001233; /* Fundo Principal (Quase preto/Azul Royal Escuro) */
-    --blue-royal: #002D62; /* Cor da Sidebar e Cards (Azul Royal) */
-    --blue-vibrant: #00BFFF; /* Azul Céu/Neon (Destaques, Links, Pulso) */
-    --blue-light: #4DFFFF; /* Azul Claro (Degradê) */
-    --white: #FFFFFF;
+    /* Cores Escuras */
+    --color-dark-bg: #0f0c29; /* Fundo Principal */
+    --color-dark-card: rgba(0, 0, 0, 0.4); /* Fundo de Cards/Sidebar */
+    --color-dark-hover: rgba(255, 255, 255, 0.1); /* Hover Escuro */
+
+    /* Cores Neon (Destaque Principal) */
+    --color-neon-blue: #6dd5fa; /* Azul Claro Original */
+    --color-neon-light: #a4e9ff; /* Azul Mais Claro para Brilho */
+    --color-neon-shadow: 0 0 10px rgba(109, 213, 250, 0.7);
     
     /* Tipografia */
-    --font-primary: 'Varela Round', sans-serif;
+    --font-primary: 'Montserrat', sans-serif; /* Fonte moderna sugerida */
+    --font-default: Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Alterado para usar a variável (se for usar Montserrat, adicione a importação no HTML) */
+    font-family: var(--font-default); 
 }
 
 body {
-    font-family: var(--font-primary);
-    background-color: var(--blue-dark);
-    color: var(--white);
-    line-height: 1.6;
-    min-height: 100vh;
+    /* Degradê de fundo com transição suave */
+    background: linear-gradient(135deg, var(--color-dark-bg), #302b63, #24243e);
+    color: #ffffff;
+    transition: background 0.5s ease;
 }
 
-a {
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--blue-vibrant);
-}
-
-h1, h2, h3 {
-    font-weight: 700;
-}
-
-/* === 2. Layout Principal (Sidebar + Content) === */
 .container {
-    display: flex;
-    min-height: 100vh;
+    display: flex;
+    min-height: 100vh;
 }
 
-/* --- Sidebar (Barra Lateral) --- */
+/* === 2. SIDEBAR (Navegação) === */
 .sidebar {
-    width: 280px; /* Um pouco mais larga */
-    padding: 3rem 2rem;
-    position: fixed;
+    width: 280px;
+    background: var(--color-dark-card);
+    padding: 40px 20px;
+    text-align: center;
+    position: sticky; /* Fixo para desktops (ou use 'fixed' dependendo da preferência) */
+    top: 0;
     height: 100vh;
-    background-color: var(--blue-royal);
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
-    z-index: 10;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.sidebar img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px; /* Aumentado */
+    border: 4px solid var(--color-neon-blue); /* Borda para destacar */
 }
 
 .sidebar h1 {
-    font-size: 3rem; /* Fonte maior */
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-    color: var(--blue-light); /* Título em azul claro */
+    font-size: 28px; /* Aumentado */
+    line-height: 1.2;
+    color: var(--color-neon-light);
 }
 
-.sidebar .role {
-    color: var(--blue-vibrant);
-    font-size: 1.1rem;
-    margin-bottom: 4rem; /* Mais espaçamento */
+.role {
+    color: var(--color-neon-blue);
+    margin: 10px 0 40px; /* Aumentado */
+    font-size: 1.1em;
+    font-weight: bold;
 }
 
 .sidebar nav a {
-    display: block;
-    font-size: 1.2rem;
-    padding: 0.8rem 0;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin: 15px 0;
+    font-weight: 600;
+    padding: 10px 0;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .sidebar nav a:hover {
-    color: var(--white);
-    border-bottom: 2px solid var(--blue-vibrant);
-    padding-left: 10px; /* Pequeno efeito lateral */
+    background: var(--color-dark-hover); /* Efeito de hover sutil */
+    color: var(--color-neon-light);
+    box-shadow: 0 0 5px var(--color-neon-blue);
 }
 
-/* --- Conteúdo Principal --- */
+/* === 3. CONTENT (Conteúdo Principal) === */
 .content {
-    margin-left: 280px;
-    flex-grow: 1;
-    padding: 3rem;
+    flex: 1;
+    padding: 60px;
 }
 
-/* Card que separa cada tópico (Azul escuro com cantos arredondados) */
-.content-card {
-    background-color: var(--blue-royal);
-    padding: 40px;
-    border-radius: 15px; /* Cantos bem arredondados */
-    margin-bottom: 30px; /* Espaço entre os cards */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
+.content section {
+    margin-bottom: 60px; /* Reduzido levemente, seções serão separadas visualmente */
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
 }
 
-.content-card:hover {
-    transform: translateY(-5px); /* Efeito sutil de elevação ao passar o mouse */
+.content section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
 h2 {
-    font-size: 2.8rem; /* Fonte maior para títulos */
-    color: var(--blue-vibrant);
-    margin-bottom: 2rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--blue-vibrant);
+    font-size: 38px; /* Aumentado */
+    margin-bottom: 25px; /* Aumentado */
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 5px var(--color-neon-blue); /* Sombra neon sutil */
 }
 
-/* === 3. Estilos de Seção === */
-
-/* --- About Me --- */
-.about-flex {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
+/* SECTION IMAGES (APLICA-SE ÀS IMAGENS DAS SEÇÕES ABOUT E SKILLS) */
+.section-image {
+    max-width: 100%; 
+    height: auto;    
+    border-radius: 15px; 
+    margin-bottom: 30px; 
+    display: block; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Sombra mais forte */
 }
 
-.about-text p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem; /* Texto maior */
-}
-
-/* Efeito Pulsante (HBO Max Inspired) */
-.profile-wrapper {
-    position: relative;
-    width: 180px; /* Tamanho do wrapper (maior) */
-    height: 180px;
-    flex-shrink: 0;
-}
-
-#about img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--blue-light);
-    z-index: 2;
-    transition: border-color 0.3s ease;
-}
-
-.profile-wrapper::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    border: 3px solid var(--blue-vibrant);
-    border-radius: 50%;
-    opacity: 0;
-    animation: pulse-ring 2.5s infinite cubic-bezier(0.66, 0, 0, 1);
-    z-index: 1;
-}
-
-@keyframes pulse-ring {
-    0% {
-        transform: scale(0.9);
-        opacity: 0.75;
-    }
-    100% {
-        transform: scale(1.3); /* Um pouco maior */
-        opacity: 0;
-    }
-}
-
-/* --- Skills --- */
-.skills-grid {
+/* === 4. SKILLS (Pastilhas Neon) === */
+.skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 1.5rem;
+    gap: 15px; /* Aumentado o gap */
 }
 
-.skill-item {
-    background: linear-gradient(45deg, var(--blue-vibrant) 0%, var(--blue-light) 100%); /* Degradê de azul */
-    color: var(--blue-dark);
-    padding: 0.7rem 1.5rem;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.8), 0 2px 5px rgba(0, 0, 0, 0.5); /* Brilho neon azul */
-    transition: transform 0.2s ease;
+.skills span {
+    display: inline-block;
+    padding: 10px 20px; /* Aumentado */
+    background: var(--color-neon-blue);
+    color: #000;
+    border-radius: 25px; /* Mais arredondado */
+    font-weight: 700;
+    font-size: 1.1em;
+    box-shadow: var(--color-neon-shadow); /* Aplica brilho neon */
+    transition: all 0.3s ease;
 }
 
-.skill-item:hover {
-    transform: scale(1.05);
-    background: var(--white);
-    color: var(--blue-dark);
-    cursor: default;
+.skills span:hover {
+    background: var(--color-neon-light);
+    box-shadow: 0 0 20px var(--color-neon-light);
+    transform: translateY(-2px);
 }
 
-/* --- Projects --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+/* === 5. PROJECTS (Cards Flutuantes) === */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min size aumentado */
+    gap: 40px; /* Aumentado o gap */
 }
 
 .project-card {
-    background-color: var(--blue-dark);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    background: var(--color-dark-card);
+    padding: 25px; /* Aumentado */
+    border-radius: 15px;
+    border: 1px solid rgba(109, 213, 250, 0.2); /* Borda sutil neon */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--blue-royal);
 }
 
 .project-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 20px var(--blue-vibrant); /* Brilho neon forte */
+    transform: translateY(-10px); /* Efeito flutuante mais perceptível */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), var(--color-neon-shadow); /* Sombra e brilho neon no hover */
 }
 
 .project-card h3 {
-    color: var(--blue-light);
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
-}
-
-.project-card p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: var(--color-neon-blue);
 }
 
 .project-card img {
-    width: 100%;
+    width: 100%;
     max-height: 200px;
     object-fit: cover;
-    border-radius: 8px;
-    margin: 1rem 0;
-    border: 2px solid var(--blue-vibrant);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid var(--color-neon-blue);
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.project-card img:hover {
+    opacity: 1;
 }
 
 .project-card a {
-    display: inline-block;
-    background-color: var(--blue-vibrant);
-    color: var(--blue-dark);
-    padding: 0.7rem 1.4rem;
-    border-radius: 25px;
-    margin-top: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
+    display: inline-block; /* Alterado para inline-block para melhor controle */
+    margin-top: 15px;
+    color: var(--color-neon-blue);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(109, 213, 250, 0.5);
+    transition: color 0.3s ease;
 }
 
 .project-card a:hover {
-    background-color: var(--blue-light);
-    color: var(--blue-dark);
+    color: var(--color-neon-light);
+    text-decoration-color: var(--color-neon-light);
 }
 
 .project-card span {
-    display: block;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    margin-top: 10px;
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.7;
 }
 
-/* --- Contact --- */
-#contact p a {
-    font-weight: 600;
-    font-size: 1.1rem;
-    border-bottom: 1px dashed var(--blue-vibrant);
-}
+/* === 6. RESPONSIVE === */
+@media (max-width: 900px) { /* Mudei para 900px para pegar mais tablets */
+  .container {
+    flex-direction: column;
+  }
 
-#contact p a:hover {
-    border-bottom-color: var(--white);
-    color: var(--white);
-}
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative; /* Remove o stickiness */
+  }
 
-/* === 4. Responsividade === */
-@media (max-width: 1000px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding: 2rem;
-        text-align: center;
-    }
-
-    .sidebar nav {
-        margin-top: 1.5rem;
+  .sidebar nav {
         display: flex;
-        justify-content: center;
         flex-wrap: wrap;
-        gap: 15px;
+        justify-content: center;
+        margin-top: 20px;
     }
 
     .sidebar nav a {
-        padding: 0.5rem 1rem;
-        border-bottom: none;
-        background-color: var(--blue-dark);
-        border-radius: 5px;
+        margin: 5px 10px;
+        padding: 8px 15px;
+        background: var(--color-dark-hover);
     }
     
-    .sidebar h1 {
-        font-size: 2.5rem;
-    }
-
-    .content {
-        margin-left: 0;
-        padding: 2rem 1rem;
-    }
-
-    .content-card {
-        padding: 30px;
-    }
-
-    .about-flex {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+  .content {
+    padding: 30px 20px; /* Ajustado */
+  }
+    
+    h2 {
+        font-size: 32px;
     }
 }

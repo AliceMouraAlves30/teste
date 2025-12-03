@@ -1,135 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+/* === 1. Estilos Globais e Reset === */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores do HBO Max */
+    --purple-dark: #1A004C; /* Roxo Escuro Profundo (Fundo principal) */
+    --purple-vibrant: #7200E8; /* Roxo Vibrante (Destaques) */
+    --purple-light: #B300B3; /* Magenta/Roxo Claro (Degradê) */
+    --white: #FFFFFF;
+    
+    /* Tipografia */
+    --font-primary: 'Varela Round', sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color: #ffffff;
+    font-family: var(--font-primary);
+    background-color: var(--purple-dark);
+    color: var(--white);
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
+/* Links em branco por padrão */
+a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--purple-vibrant); /* Destaque ao passar o mouse */
+}
+
+/* Títulos */
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* === 2. Layout Principal (Sidebar + Content) === */
 .container {
-  display: flex;
-  min-height: 100vh;
+    display: flex;
+    min-height: 100vh;
 }
 
-/* SIDEBAR */
+/* --- Sidebar (Barra Lateral) --- */
 .sidebar {
-  width: 280px;
-  background: rgba(0,0,0,0.4);
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.sidebar img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
+    width: 250px;
+    padding: 2.5rem;
+    position: fixed; /* Fixo para acompanhar a rolagem */
+    height: 100vh;
+    /* Degradê sutil para diferenciar da área principal */
+    background: linear-gradient(180deg, var(--purple-dark) 0%, #0D0026 100%); 
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 10;
 }
 
 .sidebar h1 {
-  font-size: 22px;
-  line-height: 1.2;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
 }
 
-.role {
-  color: #6dd5fa;
-  margin: 10px 0 30px;
+.sidebar .role {
+    color: var(--purple-vibrant);
+    font-size: 1rem;
+    margin-bottom: 3rem;
 }
 
 .sidebar nav a {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  margin: 15px 0;
-  font-weight: bold;
+    display: block;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid transparent;
 }
 
-/* CONTENT */
+.sidebar nav a:hover {
+    color: var(--white);
+    border-bottom: 1px solid var(--purple-light);
+}
+
+/* --- Conteúdo Principal --- */
 .content {
-  flex: 1;
-  padding: 60px;
+    margin-left: 250px; /* Garante que o conteúdo comece após a sidebar */
+    flex-grow: 1;
+    padding: 3rem 5rem;
 }
 
-.content section {
-  margin-bottom: 80px;
+section {
+    padding: 4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+section:last-child {
+    border-bottom: none;
 }
 
 h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: var(--purple-vibrant);
+    border-left: 5px solid var(--purple-vibrant);
+    padding-left: 15px;
+    margin-bottom: 2rem;
 }
 
-/* SKILLS */
+/* === 3. Estilos de Seção === */
+
+/* --- About Me --- */
+#about img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Imagem de perfil redonda */
+    object-fit: cover;
+    border: 4px solid var(--purple-light);
+    margin-bottom: 1.5rem;
+}
+
+/* --- Skills --- */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
 .skills span {
-  display: inline-block;
-  margin: 10px 10px 0 0;
-  padding: 8px 15px;
-  background: #6dd5fa;
-  color: #000;
-  border-radius: 20px;
-  font-weight: bold;
+    background-color: var(--purple-light);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px; /* Pill-shaped like the HBO Max "O" */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* PROJECTS */
+/* --- Projects --- */
 .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .project-card {
-  background: rgba(0,0,0,0.4);
-  padding: 20px;
-  border-radius: 15px;
+    background-color: #2F0075; /* Roxo um pouco mais claro que o fundo */
+    padding: 25px;
+    border-radius: 12px; /* Cantos arredondados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Este estilo afeta todas as imagens dentro dos cards de projeto */
+.project-card:hover {
+    transform: translateY(-5px); /* Efeito sutil de elevação */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 15px var(--purple-vibrant); /* Brilho neon */
+}
+
+.project-card h3 {
+    color: var(--white);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
 .project-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-card a {
-  display: block;
-  margin-top: 10px;
-  color: #6dd5fa;
-  text-decoration: none;
+    display: inline-block;
+    background-color: var(--purple-vibrant);
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    margin-top: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.project-card a:hover {
+    background-color: var(--purple-light);
+    color: var(--white);
 }
 
 .project-card span {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  opacity: 0.8;
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    margin-top: 10px;
 }
 
-/* SECTION IMAGES (APLICA-SE ÀS IMAGENS DAS SEÇÕES ABOUT E SKILLS) */
-.section-image {
-    max-width: 100%; 
-    height: auto;    
-    border-radius: 15px; 
-    margin-bottom: 30px; 
-    display: block; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+/* --- Contact --- */
+#contact p a {
+    font-weight: 600;
+    border-bottom: 1px dashed var(--purple-vibrant);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
+#contact p a:hover {
+    border-bottom-color: var(--white);
+}
 
-  .sidebar {
-    width: 100%;
-  }
+/* === 4. Responsividade (Opcional, mas Importante) === */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
 
-  .content {
-    padding: 30px;
-  }
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        text-align: center;
+    }
+
+    .sidebar nav {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .sidebar nav a {
+        padding: 0.3rem 0.5rem;
+        border-bottom: none;
+        /* Estilo de botão para mobile */
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 2rem;
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
 }
